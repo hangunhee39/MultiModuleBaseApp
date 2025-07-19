@@ -1,5 +1,6 @@
 package com.appg.user
 
+import android.util.Log
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
@@ -15,8 +16,11 @@ import com.hgh.ui.ext.noRippleClickable
 fun UserScreen(
     padding: PaddingValues,
     onSettingClick: (String) -> Unit,
+    result: String?,
     viewModel: UserViewModel = hiltViewModel()
 ) {
+    Log.d("HGH", "result : $result")
+
     Column(
         Modifier.padding(padding)
     ) {

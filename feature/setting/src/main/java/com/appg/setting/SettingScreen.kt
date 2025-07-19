@@ -21,7 +21,7 @@ import com.hgh.ui.ext.noRippleClickable
 internal fun SettingScreen(
     id: String,
     padding: PaddingValues,
-    onClickBack: () -> Unit,
+    onClickBack: (Map<String, String>) -> Unit,
     onClickLogout: () -> Unit,
     onChangeDarkMode: (Boolean) -> Unit,
     viewModel: SettingViewModel = hiltViewModel()
@@ -32,10 +32,11 @@ internal fun SettingScreen(
         AppBar(
             title = "설정",
             left = AppBarMenu.BACK,
-            onClickLeft = onClickBack,
+            onClickLeft = { onClickBack(mapOf("return" to "return")) },
             onClickRight = {})
         Text(id, fontSize = 30.sp)
-        Text("로그아웃", fontSize = 30.sp,
+        Text(
+            "로그아웃", fontSize = 30.sp,
             modifier = Modifier.noRippleClickable {
                 viewModel.setEvent(SettingContract.SettingEvent.OnClickLogout)
                 onClickLogout()

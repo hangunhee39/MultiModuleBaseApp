@@ -18,6 +18,8 @@ fun NavGraphBuilder.userNavGraph(
     onClickSetting: (String) -> Unit,
 ) {
     composable<MainTabRoute.User> {
-        UserScreen(padding, onClickSetting)
+        val result = it.savedStateHandle.get<String>("return")
+
+        UserScreen(padding, onClickSetting, result)
     }
 }

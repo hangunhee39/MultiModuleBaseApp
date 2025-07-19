@@ -6,7 +6,6 @@ import javax.inject.Inject
 
 @HiltViewModel
 class UserViewModel @Inject constructor(
-
 ) : BaseViewModel<UserContract.UserViewState, UserContract.UserSidEffect, UserContract.UserEvent>(
     UserContract.UserViewState()
 ) {

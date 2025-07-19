@@ -75,6 +75,14 @@ internal class MainNavigator(
         }
     }
 
+    fun popBackStackWithData( data: Map<String, Any>) {
+        navController.previousBackStackEntry?.savedStateHandle?.let {
+            data.forEach { (key, value) ->
+                it.set(key, value)
+            }
+        }
+        navController.popBackStack()
+    }
     private inline fun <reified T : Route> isSameCurrentDestination(): Boolean {
         return navController.currentDestination?.hasRoute<T>() == true
     }

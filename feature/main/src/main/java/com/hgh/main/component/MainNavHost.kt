@@ -62,7 +62,7 @@ internal fun MainNavHost(
 
             settingNavGraph(
                 padding = padding,
-                onClickBack = navigator::popBackStackIfNotHome,
+                onClickBack = navigator::popBackStackWithData,
                 onClickLogout = navigator::navigateSplash,
                 onChangeDarkMode = onChangeDarkMode
             )

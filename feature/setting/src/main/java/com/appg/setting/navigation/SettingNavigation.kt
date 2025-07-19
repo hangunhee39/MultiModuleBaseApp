@@ -14,7 +14,7 @@ fun NavController.navigateSetting(userId: String) {
 
 fun NavGraphBuilder.settingNavGraph(
     padding: PaddingValues,
-    onClickBack: () -> Unit,
+    onClickBack: (Map<String, String>) -> Unit,
     onClickLogout: () -> Unit,
     onChangeDarkMode: (Boolean) -> Unit,
 ) {
