@@ -10,6 +10,10 @@ class UserViewModel @Inject constructor(
     UserContract.UserViewState()
 ) {
     override fun handleEvents(event: UserContract.UserEvent) {
-
+        when(event) {
+            is UserContract.UserEvent.ReturnSettingValue -> {
+                updateState { copy(returnResult = event.result) }
+            }
+        }
     }
 }

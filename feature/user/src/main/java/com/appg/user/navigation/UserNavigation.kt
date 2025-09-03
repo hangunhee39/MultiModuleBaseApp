@@ -6,6 +6,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavOptions
 import androidx.navigation.compose.composable
 import com.appg.user.UserScreen
+import com.hgh.navigation.KeyNavi
 import com.hgh.navigation.MainTabRoute
 
 
@@ -18,7 +19,7 @@ fun NavGraphBuilder.userNavGraph(
     onClickSetting: (String) -> Unit,
 ) {
     composable<MainTabRoute.User> {
-        val result = it.savedStateHandle.get<String>("return")
+        val result = it.savedStateHandle.remove<String>(KeyNavi.RETURN)
 
         UserScreen(padding, onClickSetting, result)
     }

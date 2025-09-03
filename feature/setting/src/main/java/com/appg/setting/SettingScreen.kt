@@ -1,5 +1,6 @@
 package com.appg.setting
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -12,6 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.hgh.designsystem.theme.LocalDarkTheme
+import com.hgh.navigation.KeyNavi
 import com.hgh.ui.component.AppBar
 import com.hgh.ui.component.type.AppBarMenu
 import com.hgh.ui.ext.noRippleClickable
@@ -26,13 +28,17 @@ internal fun SettingScreen(
     onChangeDarkMode: (Boolean) -> Unit,
     viewModel: SettingViewModel = hiltViewModel()
 ) {
+    BackHandler {
+        onClickBack(mapOf(KeyNavi.RETURN to "return"))
+    }
+
     Column(
         Modifier.padding(padding)
     ) {
         AppBar(
             title = "설정",
             left = AppBarMenu.BACK,
-            onClickLeft = { onClickBack(mapOf("return" to "return")) },
+            onClickLeft = { onClickBack(mapOf(KeyNavi.RETURN to "return")) },
             onClickRight = {})
         Text(id, fontSize = 30.sp)
         Text(

@@ -22,6 +22,7 @@ import com.hgh.designsystem.theme.Gray90
 import com.hgh.designsystem.theme.White
 import com.hgh.ui.component.type.AppBarMenu
 import com.hgh.ui.ext.noRippleClickable
+import com.hgh.ui.ext.noRippleSingleClickable
 
 @Composable
 fun AppBar(
@@ -60,7 +61,7 @@ fun AppBar(
                 modifier = Modifier
                     .padding(start = left.padding)
                     .clip(RoundedCornerShape(30.dp))
-                    .noRippleClickable { onClickLeft() }
+                    .noRippleSingleClickable { onClickLeft() }
                     .align(Alignment.CenterStart),
             )
         }
@@ -72,7 +73,7 @@ fun AppBar(
                 modifier = Modifier
                     .padding(end = right.padding)
                     .clip(RoundedCornerShape(30.dp))
-                    .noRippleClickable { onClickRight() }
+                    .noRippleSingleClickable { onClickRight() }
                     .align(Alignment.CenterEnd),
             )
         }

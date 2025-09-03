@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -19,7 +20,13 @@ fun UserScreen(
     result: String?,
     viewModel: UserViewModel = hiltViewModel()
 ) {
-    Log.d("HGH", "result : $result")
+    LaunchedEffect(result) {
+        if (result != null) {
+            Log.d("HGHLOG", "LaunchedEffect call $result")
+            viewModel.handleEvents(UserContract.UserEvent.ReturnSettingValue(result ))
+        }
+    }
+
 
     Column(
         Modifier.padding(padding)

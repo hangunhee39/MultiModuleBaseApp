@@ -9,9 +9,12 @@ class UserContract {
 
     data class UserViewState (
         val loadState: LoadState = LoadState.LOADING,
+        val returnResult: String = ""
     ) : ViewState
 
     sealed class UserSidEffect: ViewSideEffect {}
 
-    sealed class UserEvent: ViewEvent {}
+    sealed class UserEvent: ViewEvent {
+        data class ReturnSettingValue(val result: String) : UserEvent()
+    }
 }
